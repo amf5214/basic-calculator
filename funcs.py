@@ -110,4 +110,9 @@ def create_buttons(self):
     self.right.clicked.connect(self.push_right)
     self.right.setStyleSheet('background-color: black;''color: white')
 
+    self.decimal = QPushButton('.')
+    self.decimal.setFont(QFont('Times', 15))
+    self.decimal.clicked.connect(self.push_decimal)
+    self.decimal.setStyleSheet('background-color: black;''color: white')
+
 

@@ -73,6 +73,7 @@ class Calc(QMainWindow):
         self.lay_main.addWidget(self.all_clear, 7, 1)
         self.lay_main.addWidget(self.left, 3, 4)
         self.lay_main.addWidget(self.right, 4, 4)
+        self.lay_main.addWidget(self.decimal, 5, 4)
 
     def help_menu(self):
         """
@@ -186,6 +187,15 @@ This calculator does not support nested parentheses, so use of them will cause a
         """
 
         number = ' + '
+        state = 'symbol'
+        self.output_modify(number, state)
+
+    def push_decimal(self):
+        """
+        On push of . this will add it to the string -> final
+        """
+
+        number = '.'
         state = 'symbol'
         self.output_modify(number, state)
 
