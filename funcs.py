@@ -100,4 +100,14 @@ def create_buttons(self):
     self.all_clear.clicked.connect(self.push_all_clear)
     self.all_clear.setStyleSheet('background-color: black;''color: white')
 
+    self.left = QPushButton('(')
+    self.left.setFont(QFont('Times', 15))
+    self.left.clicked.connect(self.push_left)
+    self.left.setStyleSheet('background-color: black;''color: white')
+
+    self.right = QPushButton(')')
+    self.right.setFont(QFont('Times', 15))
+    self.right.clicked.connect(self.push_right)
+    self.right.setStyleSheet('background-color: black;''color: white')
+
 
