@@ -24,7 +24,7 @@ class Calc(QMainWindow):
 
         # formats the window properties
         self.setWindowTitle('Calculator')
-        self.setWindowIcon(QIcon('calc_icon.jpg'))
+        self.setWindowIcon(QIcon('calc_icon.png'))
         self.setStyleSheet('background-color: black;''color: white')
         # self.setWindowFlags(Qt.FramelessWindowHint)
 
@@ -45,7 +45,7 @@ class Calc(QMainWindow):
         # help_btn.triggered.connect(self.help_menu)
         # self.menu.addAction(help_btn)
 
-        tray_icon = QSystemTrayIcon(QIcon('qm3_1.png'), self)
+        tray_icon = QSystemTrayIcon(QIcon('qm_4.png'), self)
         tray_icon.setToolTip('Need help with your calculator?')
         tray_icon.activated.connect(self.help_menu)
         tray_icon.show()
@@ -86,7 +86,7 @@ class Calc(QMainWindow):
         """
 
         QMessageBox.about(self, 'Help', """This is a basic calculator that has built-in order of operations. \n
-The order of operations is parenthesis, exponent, multiplication, division, addition, subtraction. \n
+The order of operations is parentheses, exponents, multiplication, division, addition, and then subtraction. \n
 This calculator does not support nested parentheses, so use of them will cause a failure""")
 
     def update_screen(self, obj):
