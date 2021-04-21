@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QMainWindow, QFrame, QGridLayout, QAction, QMessageBox
+from PyQt5.QtWidgets import QSystemTrayIcon, QMainWindow, QFrame, QGridLayout, QAction, QMessageBox, QMenu
 from PyQt5.QtGui import QIcon
 from funcs import *
 import logging as lg
@@ -25,7 +25,7 @@ class Calc(QMainWindow):
         # formats the window properties
         self.setWindowTitle('Calculator')
         self.setWindowIcon(QIcon('calc_icon.jpg'))
-        self.setStyleSheet('background-color: white')
+        self.setStyleSheet('background-color: black;''color: white')
         # self.setWindowFlags(Qt.FramelessWindowHint)
 
         # primary application operations
@@ -36,14 +36,19 @@ class Calc(QMainWindow):
         self.update_screen('Basic Calculator')
 
         # Creates a menu bar at the top of the window
-        self.menu = self.menuBar()
+        # self.menu = self.menuBar()
 
-        # Creates the help button and adds it to the menu
-        help_btn = QAction(QIcon('qm.jpg'), 'Help', self)
-        help_btn.setShortcut('Ctrl+H')
-        help_btn.setStatusTip('Help')
-        help_btn.triggered.connect(self.help_menu)
-        self.menu.addAction(help_btn)
+        # # Creates the help button and adds it to the menu
+        # help_btn = QAction(QIcon('qm3_1.png'), 'Help', self)
+        # help_btn.setShortcut('Ctrl+H')
+        # help_btn.setStatusTip('Help')
+        # help_btn.triggered.connect(self.help_menu)
+        # self.menu.addAction(help_btn)
+
+        tray_icon = QSystemTrayIcon(QIcon('qm3_1.png'), self)
+        tray_icon.setToolTip('Need help with your calculator?')
+        tray_icon.activated.connect(self.help_menu)
+        tray_icon.show()
 
         # Shows the window
         self.show()
@@ -52,28 +57,28 @@ class Calc(QMainWindow):
         """
         Adds the widgets to the grid layout
         """
-        self.lay_main.addWidget(self.output_screen, 0, 0, 2, 5)
-        self.lay_main.addWidget(self.n7, 3, 0)
-        self.lay_main.addWidget(self.n8, 3, 1)
-        self.lay_main.addWidget(self.n9, 3, 2)
-        self.lay_main.addWidget(self.n4, 4, 0)
-        self.lay_main.addWidget(self.n5, 4, 1)
-        self.lay_main.addWidget(self.n6, 4, 2)
-        self.lay_main.addWidget(self.n1, 5, 0)
-        self.lay_main.addWidget(self.n2, 5, 1)
-        self.lay_main.addWidget(self.n3, 5, 2)
-        self.lay_main.addWidget(self.n0, 6, 0)
-        self.lay_main.addWidget(self.add, 3, 3)
-        self.lay_main.addWidget(self.subtract, 4, 3)
+        self.lay_main.addWidget(self.output_screen, 0, 0, 2, 4)
+        self.lay_main.addWidget(self.n7, 5, 0)
+        self.lay_main.addWidget(self.n8, 5, 1)
+        self.lay_main.addWidget(self.n9, 5, 2)
+        self.lay_main.addWidget(self.n4, 6, 0)
+        self.lay_main.addWidget(self.n5, 6, 1)
+        self.lay_main.addWidget(self.n6, 6, 2)
+        self.lay_main.addWidget(self.n1, 7, 0)
+        self.lay_main.addWidget(self.n2, 7, 1)
+        self.lay_main.addWidget(self.n3, 7, 2)
+        self.lay_main.addWidget(self.n0, 8, 0)
+        self.lay_main.addWidget(self.add, 7, 3)
+        self.lay_main.addWidget(self.subtract, 6, 3)
         self.lay_main.addWidget(self.multiply, 5, 3)
-        self.lay_main.addWidget(self.divide, 6, 3)
-        self.lay_main.addWidget(self.power, 6, 2)
-        self.lay_main.addWidget(self.enter, 7, 4)
-        self.lay_main.addWidget(self.clear, 7, 0)
-        self.lay_main.addWidget(self.all_clear, 7, 1)
-        self.lay_main.addWidget(self.left, 3, 4)
-        self.lay_main.addWidget(self.right, 4, 4)
-        self.lay_main.addWidget(self.decimal, 5, 4)
+        self.lay_main.addWidget(self.divide, 4, 3)
+        self.lay_main.addWidget(self.power, 4, 0)
+        self.lay_main.addWidget(self.enter, 8, 3)
+        # self.lay_main.addWidget(self.clear, 4, 4)
+        self.lay_main.addWidget(self.all_clear, 8, 2)
+        self.lay_main.addWidget(self.left, 4, 1)
+        self.lay_main.addWidget(self.right, 4, 2)
+        self.lay_main.addWidget(self.decimal, 8, 1)
 
     def help_menu(self):
         """
