@@ -88,7 +88,8 @@ def create_buttons(self):
     self.output_screen = QLabel()
     self.output_screen.setFont(QFont('Times', 25))
     self.output_screen.setAlignment(Qt.AlignCenter)
-    self.output_screen.setStyleSheet('border: 5px solid black;''background-color: white;''color: black')
+    self.output_screen.setStyleSheet('background-color: white;''color: black')
+    # self.output_screen.setStyleSheet('border: 5px solid black')
 
     self.clear = QPushButton('C')
     self.clear.setFont(QFont('Times', 15))
@@ -114,5 +115,10 @@ def create_buttons(self):
     self.decimal.setFont(QFont('Times', 15))
     self.decimal.clicked.connect(self.push_decimal)
     self.decimal.setStyleSheet('background-color: white;''color: black')
+
+    self.negative = QPushButton('(-)')
+    self.negative.setFont(QFont('Times', 15))
+    self.negative.clicked.connect(self.push_negative)
+    self.negative.setStyleSheet('background-color: white;''color: black')
 
 

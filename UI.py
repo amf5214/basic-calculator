@@ -57,7 +57,7 @@ class Calc(QMainWindow):
         """
         Adds the widgets to the grid layout
         """
-        self.lay_main.addWidget(self.output_screen, 0, 0, 2, 4)
+        self.lay_main.addWidget(self.output_screen, 0, 0, 3, 4)
         self.lay_main.addWidget(self.n7, 5, 0)
         self.lay_main.addWidget(self.n8, 5, 1)
         self.lay_main.addWidget(self.n9, 5, 2)
@@ -74,11 +74,12 @@ class Calc(QMainWindow):
         self.lay_main.addWidget(self.divide, 4, 3)
         self.lay_main.addWidget(self.power, 4, 0)
         self.lay_main.addWidget(self.enter, 8, 3)
-        # self.lay_main.addWidget(self.clear, 4, 4)
-        self.lay_main.addWidget(self.all_clear, 8, 2)
+        self.lay_main.addWidget(self.clear, 9, 1)
+        self.lay_main.addWidget(self.all_clear, 9, 0)
         self.lay_main.addWidget(self.left, 4, 1)
         self.lay_main.addWidget(self.right, 4, 2)
         self.lay_main.addWidget(self.decimal, 8, 1)
+        self.lay_main.addWidget(self.negative, 8, 2)
 
     def help_menu(self):
         """
@@ -255,6 +256,15 @@ This calculator does not support nested parentheses, so use of them will cause a
         """
 
         number = ' )'
+        state = 'symbol'
+        self.output_modify(number, state)
+
+    def push_negative(self):
+        """
+        On push of - this will add it to the string -> final
+        """
+
+        number = '-'
         state = 'symbol'
         self.output_modify(number, state)
 
