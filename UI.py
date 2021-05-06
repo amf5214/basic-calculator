@@ -36,14 +36,16 @@ class Calc(QMainWindow):
         self.update_screen('Basic Calculator')
 
         # Creates a menu bar at the top of the window
-        # self.menu = self.menuBar()
+        self.menu = self.menuBar()
 
         # # Creates the help button and adds it to the menu
-        # help_btn = QAction(QIcon('qm3_1.png'), 'Help', self)
-        # help_btn.setShortcut('Ctrl+H')
-        # help_btn.setStatusTip('Help')
-        # help_btn.triggered.connect(self.help_menu)
-        # self.menu.addAction(help_btn)
+        help_btn = QAction(QIcon('qm_4.png'), 'Help', self)
+        help_btn.setShortcut('Ctrl+H')
+        help_btn.setStatusTip('Help')
+        help_btn.triggered.connect(self.help_menu)
+
+        self.menu.addAction(help_btn)
+
 
         tray_icon = QSystemTrayIcon(QIcon('qm_4.png'), self)
         tray_icon.setToolTip('Need help with your calculator?')
